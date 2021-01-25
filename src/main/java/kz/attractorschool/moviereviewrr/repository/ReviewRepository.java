@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @Repository
 public interface ReviewRepository extends CrudRepository<Review, String> {
-    Optional<Review> findByReviewer(User reviewer);
+    Optional<Review> findByReviewerOrMovie(User reviewer, Movie movie);
     Optional<Review>findByMovie(Movie toMovie);
     boolean existsByReviewerAndMovie(User reviewer, Movie toMovie);
     Optional<Review>findAllByMovie(Movie movie);

@@ -12,13 +12,18 @@ import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class MovieService {
-    private final MovieRepository movieRepository;
-    Sort sortBy = Sort.by(Sort.Order.asc("title"),
-            Sort.Order.asc("rating"));
-    int page = 1;
-    int count = 10;
 
-    Pageable pageable = PageRequest.of(page, count, sortBy);
-    Page<Movie> result = movieRepository.findAll(pageable);
+public class MovieService {
+
+    private final MovieRepository movieRepository;
+    public void PageAndSort() {
+
+        Sort sortBy = Sort.by(Sort.Order.asc("title"),
+                Sort.Order.asc("rating"));
+        int page = 1;
+        int count = 10;
+
+        Pageable pageable = PageRequest.of(page, count, sortBy);
+        Page<Movie> result = movieRepository.findAll(pageable);
+    }
 }
